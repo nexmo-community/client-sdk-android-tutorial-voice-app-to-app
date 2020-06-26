@@ -86,13 +86,6 @@ class MainViewModel : ViewModel() {
         loadingMutableLiveData.postValue(true)
     }
 
-    @SuppressLint("MissingPermission")
-    fun startAppToPhoneCall() {
-        lastCalledUserName = ""
-        client.call("IGNORED_NUMBER", NexmoCallHandler.SERVER, callListener)
-        loadingMutableLiveData.postValue(true)
-    }
-
     fun onBackPressed() {
         client.logout()
     }

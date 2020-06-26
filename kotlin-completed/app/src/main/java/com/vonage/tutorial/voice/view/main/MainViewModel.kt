@@ -41,10 +41,7 @@ class MainViewModel : ViewModel() {
     val otherUserLiveData = _otherUserNameMutableLiveData.asLiveData()
 
     private val incomingCallListener = NexmoIncomingCallListener { call ->
-        callManager.onGoingCall = call
-        val otherUserName = call.callMembers.first().user.name
-        val navDirections = MainFragmentDirections.actionMainFragmentToIncomingCallFragment(otherUserName)
-        navManager.navigate(navDirections)
+        TODO("Fill listener body")
     }
 
     private val callListener = object : NexmoRequestListener<NexmoCall> {
@@ -69,9 +66,7 @@ class MainViewModel : ViewModel() {
         _currentUserNameMutableLiveData.postValue(currentUserName)
         otherUserName = Config.getOtherUserName(currentUserName)
 
-        //The same callback can be registered twice, so we are removing all callbacks to be save
-        client.removeIncomingCallListeners()
-        client.addIncomingCallListener(incomingCallListener)
+        TODO("Register incoming call listener")
     }
 
     override fun onCleared() {
@@ -81,11 +76,6 @@ class MainViewModel : ViewModel() {
     @SuppressLint("MissingPermission")
     fun startAppToAppCall() {
         TODO("Fill be body for app to app call tutorial")
-    }
-
-    @SuppressLint("MissingPermission")
-    fun startAppToPhoneCall() {
-        TODO("Fill be body for app to phone call tutorial")
     }
 
     fun onBackPressed() {

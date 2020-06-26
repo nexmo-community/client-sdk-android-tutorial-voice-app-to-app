@@ -19,7 +19,6 @@ class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
 
     private var dataLoading: Boolean by Delegates.observable(false) { _, _, newValue ->
         startAppToAppCallButton.isEnabled = !newValue
-        startAppToPhoneCallButton.isEnabled = !newValue
         progressBar.isVisible = newValue
     }
 
@@ -56,10 +55,6 @@ class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
 
         startAppToAppCallButton.setOnClickListener {
             TODO("Fill be body for app to app call tutorial")
-        }
-
-        startAppToPhoneCallButton.setOnClickListener {
-            TODO("Fill be body for app to phone call tutorial")
         }
     }
 
