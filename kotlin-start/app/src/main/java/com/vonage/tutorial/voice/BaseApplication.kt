@@ -14,7 +14,11 @@ class BaseApplication : Application() {
             Timber.plant(Timber.DebugTree())
         }
 
+        initializeNexmoClient()
+    }
+
+    private fun initializeNexmoClient() {
         // Init the NexmoClient. You can retrieve NexmoClient instance latter by using NexmoClient.get()
-        NexmoClient.Builder().build(this)
+        TODO("Init NexmoClient here")
     }
 }
