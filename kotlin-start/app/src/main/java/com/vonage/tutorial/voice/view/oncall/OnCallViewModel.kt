@@ -26,10 +26,10 @@ class OnCallViewModel : ViewModel() {
     val otherUserNameLiveData = _otherUserNameMutableLiveData.asLiveData()
 
     private val callEventListener = object : NexmoCallEventListener {
-        override fun onMemberStatusUpdated(callStatus: NexmoCallMemberStatus, callMember: NexmoCallMember) {
-            Timber.d("CallEventListener.onMemberStatusUpdated: ${callMember.user.name} : $callStatus")
+        override fun onMemberStatusUpdated(callMemberStatus: NexmoCallMemberStatus, callMember: NexmoCallMember) {
+            Timber.d("CallEventListener.onMemberStatusUpdated: ${callMember.user.name} : $callMemberStatus")
 
-            if (callStatus == NexmoCallMemberStatus.COMPLETED || callStatus == NexmoCallMemberStatus.CANCELED) {
+            if (callMemberStatus == NexmoCallMemberStatus.COMPLETED || callMemberStatus == NexmoCallMemberStatus.CANCELED) {
                 callManager.onGoingCall = null
                 navManager.popBackStack(R.id.mainFragment, false)
             }
