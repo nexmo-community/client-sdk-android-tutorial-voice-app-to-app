@@ -39,7 +39,7 @@ class MainViewModel : ViewModel() {
     val currentUserNameLiveData = _currentUserNameMutableLiveData.asLiveData()
 
     private val _otherUserNameMutableLiveData = MutableLiveData<String>()
-    val otherUserLiveData = _otherUserNameMutableLiveData.asLiveData()
+    val otherUserNameLiveData = _otherUserNameMutableLiveData.asLiveData()
 
     private val incomingCallListener = NexmoIncomingCallListener { call ->
         TODO("Fill listener body")
