@@ -36,17 +36,6 @@ class IncomingCallViewModel : ViewModel() {
         }
     }
 
-    private val hanguCallListener = object : NexmoRequestListener<NexmoCall> {
-        override fun onSuccess(call: NexmoCall?) {
-            val navDirections = IncomingCallFragmentDirections.actionIncomingCallFragmentToOnCallFragment(otherUserName)
-            navManager.navigate(navDirections)
-        }
-
-        override fun onError(apiError: NexmoApiError) {
-            toastMutableLiveData.postValue(apiError.message)
-        }
-    }
-
     fun hangup() {
         hangupInternal(true)
     }
