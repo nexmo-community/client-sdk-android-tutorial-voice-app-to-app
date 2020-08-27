@@ -11,7 +11,7 @@ import com.vonage.tutorial.voice.util.CallManager
 import com.vonage.tutorial.voice.util.NavManager
 import com.vonage.tutorial.voice.util.observer
 
-class IncomingViewModel : ViewModel() {
+class IncomingCallViewModel : ViewModel() {
     private val callManager = CallManager
     private val navManager = NavManager
 
