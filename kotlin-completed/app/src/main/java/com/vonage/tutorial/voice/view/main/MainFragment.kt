@@ -35,7 +35,7 @@ class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
     }
 
     private val currentUserObserver = Observer<String> {
-        currrentUserNameTextView.setText(R.string.hi, it)
+        currentUserNameTextView.setText(R.string.hi, it)
     }
 
     private val otherUserObserver = Observer<String> {
