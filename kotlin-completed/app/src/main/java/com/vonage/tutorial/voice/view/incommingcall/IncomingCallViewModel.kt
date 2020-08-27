@@ -11,7 +11,7 @@ import com.vonage.tutorial.voice.util.CallManager
 import com.vonage.tutorial.voice.util.NavManager
 import com.vonage.tutorial.voice.util.observer
 
-class IncomingViewModel : ViewModel() {
+class IncomingCallViewModel : ViewModel() {
     private val callManager = CallManager
     private val navManager = NavManager
 
@@ -26,6 +26,17 @@ class IncomingViewModel : ViewModel() {
     val toastLiveData = toastMutableLiveData.asLiveData()
 
     private val answerCallListener = object : NexmoRequestListener<NexmoCall> {
+        override fun onSuccess(call: NexmoCall?) {
+            val navDirections = IncomingCallFragmentDirections.actionIncomingCallFragmentToOnCallFragment(otherUserName)
+            navManager.navigate(navDirections)
+        }
+
+        override fun onError(apiError: NexmoApiError) {
+            toastMutableLiveData.postValue(apiError.message)
+        }
+    }
+
+    private val hanguCallListener = object : NexmoRequestListener<NexmoCall> {
         override fun onSuccess(call: NexmoCall?) {
             val navDirections = IncomingCallFragmentDirections.actionIncomingCallFragmentToOnCallFragment(otherUserName)
             navManager.navigate(navDirections)

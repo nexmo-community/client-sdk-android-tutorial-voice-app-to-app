@@ -23,7 +23,7 @@ class IncomingCallFragment : Fragment(R.layout.fragment_incoming_call),
         otherUserNameTextView.text = it
     }
 
-    private val viewModel by viewModels<IncomingViewModel>()
+    private val viewModel by viewModels<IncomingCallViewModel>()
     private val args by navArgs<IncomingCallFragmentArgs>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

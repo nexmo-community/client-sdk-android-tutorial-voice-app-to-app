@@ -35,12 +35,12 @@ class OnCallViewModel : ViewModel() {
             }
         }
 
-        override fun onMuteChanged(nexmoMediaActionState: NexmoMediaActionState, callMember: NexmoCallMember) {
-            Timber.d("CallEventListener.onMuteChanged: ${callMember.user.name} : $nexmoMediaActionState")
+        override fun onMuteChanged(mediaActionState: NexmoMediaActionState, callMember: NexmoCallMember) {
+            Timber.d("CallEventListener.onMuteChanged: ${callMember.user.name} : $mediaActionState")
         }
 
-        override fun onEarmuffChanged(nexmoMediaActionState: NexmoMediaActionState, callMember: NexmoCallMember) {
-            Timber.d("CallEventListener.onEarmuffChanged: ${callMember.user.name} : $nexmoMediaActionState")
+        override fun onEarmuffChanged(mediaActionState: NexmoMediaActionState, callMember: NexmoCallMember) {
+            Timber.d("CallEventListener.onEarmuffChanged: ${callMember.user.name} : $mediaActionState")
         }
 
         override fun onDTMF(dtmf: String, callMember: NexmoCallMember) {
