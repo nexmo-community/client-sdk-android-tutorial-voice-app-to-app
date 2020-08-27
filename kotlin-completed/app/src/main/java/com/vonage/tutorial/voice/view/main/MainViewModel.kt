@@ -23,7 +23,7 @@ class MainViewModel : ViewModel() {
     private val navManager = NavManager
 
     private var otherUserName: String by observer("") {
-        _otherUserNameMutableLiveData.postValue(it)
+        otherUserNameMutableLiveData.postValue(it)
     }
 
     // SDK does not expose this info on call success
@@ -35,11 +35,11 @@ class MainViewModel : ViewModel() {
     private val loadingMutableLiveData = MutableLiveData<Boolean>()
     val loadingLiveData = loadingMutableLiveData.asLiveData()
 
-    private val _currentUserNameMutableLiveData = MutableLiveData<String>()
-    val currentUserNameLiveData = _currentUserNameMutableLiveData.asLiveData()
+    private val currentUserNameMutableLiveData = MutableLiveData<String>()
+    val currentUserNameLiveData = currentUserNameMutableLiveData.asLiveData()
 
-    private val _otherUserNameMutableLiveData = MutableLiveData<String>()
-    val otherUserLiveData = _otherUserNameMutableLiveData.asLiveData()
+    private val otherUserNameMutableLiveData = MutableLiveData<String>()
+    val otherNameUserLiveData = otherUserNameMutableLiveData.asLiveData()
 
     private val incomingCallListener = NexmoIncomingCallListener { call ->
         callManager.onGoingCall = call
@@ -67,7 +67,7 @@ class MainViewModel : ViewModel() {
 
     fun onInit(arg: MainFragmentArgs) {
         val currentUserName = arg.userName
-        _currentUserNameMutableLiveData.postValue(currentUserName)
+        currentUserNameMutableLiveData.postValue(currentUserName)
         otherUserName = Config.getOtherUserName(currentUserName)
 
         //The same callback can be registered twice, so we are removing all callbacks to be save

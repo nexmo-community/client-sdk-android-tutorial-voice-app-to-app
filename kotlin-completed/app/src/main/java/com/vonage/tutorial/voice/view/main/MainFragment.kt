@@ -51,7 +51,7 @@ class MainFragment : Fragment(R.layout.fragment_main), BackPressHandler {
         observe(viewModel.toastLiveData, toastObserver)
         observe(viewModel.loadingLiveData, loadingObserver)
         observe(viewModel.currentUserNameLiveData, currentUserObserver)
-        observe(viewModel.otherUserLiveData, otherUserObserver)
+        observe(viewModel.otherNameUserLiveData, otherUserObserver)
 
         startAppToAppCallButton.setOnClickListener {
             viewModel.startAppToAppCall()
