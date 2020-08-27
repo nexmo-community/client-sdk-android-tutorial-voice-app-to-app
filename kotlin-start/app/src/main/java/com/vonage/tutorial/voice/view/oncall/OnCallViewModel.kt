@@ -26,21 +26,21 @@ class OnCallViewModel : ViewModel() {
     val otherUserNameLiveData = _otherUserNameMutableLiveData.asLiveData()
 
     private val callEventListener = object : NexmoCallEventListener {
-        override fun onMemberStatusUpdated(nexmoCallStatus: NexmoCallMemberStatus, callMember: NexmoCallMember) {
-            Timber.d("CallEventListener.onMemberStatusUpdated: ${callMember.user.name} : $nexmoCallStatus")
+        override fun onMemberStatusUpdated(callStatus: NexmoCallMemberStatus, callMember: NexmoCallMember) {
+            Timber.d("CallEventListener.onMemberStatusUpdated: ${callMember.user.name} : $callStatus")
 
-            if (nexmoCallStatus == NexmoCallMemberStatus.COMPLETED || nexmoCallStatus == NexmoCallMemberStatus.CANCELED) {
+            if (callStatus == NexmoCallMemberStatus.COMPLETED || callStatus == NexmoCallMemberStatus.CANCELED) {
                 callManager.onGoingCall = null
                 navManager.popBackStack(R.id.mainFragment, false)
             }
         }
 
-        override fun onMuteChanged(nexmoMediaActionState: NexmoMediaActionState, callMember: NexmoCallMember) {
-            Timber.d("CallEventListener.onMuteChanged: ${callMember.user.name} : $nexmoMediaActionState")
+        override fun onMuteChanged(mediaActionState: NexmoMediaActionState, callMember: NexmoCallMember) {
+            Timber.d("CallEventListener.onMuteChanged: ${callMember.user.name} : $mediaActionState")
         }
 
-        override fun onEarmuffChanged(nexmoMediaActionState: NexmoMediaActionState, callMember: NexmoCallMember) {
-            Timber.d("CallEventListener.onEarmuffChanged: ${callMember.user.name} : $nexmoMediaActionState")
+        override fun onEarmuffChanged(mediaActionState: NexmoMediaActionState, callMember: NexmoCallMember) {
+            Timber.d("CallEventListener.onEarmuffChanged: ${callMember.user.name} : $mediaActionState")
         }
 
         override fun onDTMF(dtmf: String, callMember: NexmoCallMember) {
