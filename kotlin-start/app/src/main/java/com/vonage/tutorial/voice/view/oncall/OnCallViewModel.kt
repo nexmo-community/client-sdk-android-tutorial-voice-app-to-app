@@ -22,8 +22,8 @@ class OnCallViewModel : ViewModel() {
     private val toastMutableLiveData = MutableLiveData<String>()
     val toastLiveData = toastMutableLiveData.asLiveData()
 
-    private val _otherUserNameMutableLiveData = MutableLiveData<String>()
-    val otherUserNameLiveData = _otherUserNameMutableLiveData.asLiveData()
+    private val otherUserNameMutableLiveData = MutableLiveData<String>()
+    val otherUserNameLiveData = otherUserNameMutableLiveData.asLiveData()
 
     private val callEventListener = object : NexmoCallEventListener {
         override fun onMemberStatusUpdated(callMemberStatus: NexmoCallMemberStatus, callMember: NexmoCallMember) {
@@ -80,6 +80,6 @@ class OnCallViewModel : ViewModel() {
     }
 
     fun onInit(args: OnCallFragmentArgs) {
-        _otherUserNameMutableLiveData.postValue(args.otherUserName)
+        otherUserNameMutableLiveData.postValue(args.otherUserName)
     }
 }

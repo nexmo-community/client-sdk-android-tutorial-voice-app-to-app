@@ -12,23 +12,15 @@ class LoginViewModel : ViewModel() {
 
     private val navManager = NavManager
 
-    private val _connectionStatus = MutableLiveData<ConnectionStatus>()
-    val connectionStatus = _connectionStatus.asLiveData()
+    private val connectionStatusMutableLiveData = MutableLiveData<ConnectionStatus>()
+    val connectionStatusLiveData = connectionStatusMutableLiveData.asLiveData()
 
     private var user: User? = null
 
     private val client: NexmoClient = TODO("Retrieve NexmoClient instance")
 
     init {
-        client.setConnectionListener { newConnectionStatus, _ ->
-
-            if (newConnectionStatus == ConnectionStatus.CONNECTED) {
-                navigate()
-                return@setConnectionListener
-            }
-
-            _connectionStatus.postValue(newConnectionStatus)
-        }
+        TODO("Add status connection listener")
     }
 
     private fun navigate() {
@@ -41,6 +33,6 @@ class LoginViewModel : ViewModel() {
     }
 
     fun onLoginUser(user: User) {
-        // TODO: Login user
+        TODO("Login user")
     }
 }

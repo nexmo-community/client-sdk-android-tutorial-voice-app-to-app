@@ -2,7 +2,6 @@ package com.vonage.tutorial.voice
 
 import android.app.Application
 import com.nexmo.client.BuildConfig
-import com.nexmo.client.NexmoClient
 import timber.log.Timber
 
 class BaseApplication : Application() {
