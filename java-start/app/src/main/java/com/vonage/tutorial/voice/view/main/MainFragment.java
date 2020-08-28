@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import com.vonage.tutorial.R;
 import com.vonage.tutorial.voice.BackPressHandler;
+import com.vonage.tutorial.voice.util.Tutorial;
 
 public class MainFragment extends Fragment implements BackPressHandler {
 
@@ -58,7 +59,9 @@ public class MainFragment extends Fragment implements BackPressHandler {
         viewModel.currentUserNameLiveData.observe(getViewLifecycleOwner(), currentUserObserver);
         viewModel.otherUserLiveData.observe(getViewLifecycleOwner(), otherUserObserver);
 
-        startAppToAppCallButton.setOnClickListener(it -> viewModel.startAppToAppCall());
+        startAppToAppCallButton.setOnClickListener(it -> {
+            Tutorial.todo("Start a call");
+        });
     }
 
     @Override

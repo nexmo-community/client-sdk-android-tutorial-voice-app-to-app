@@ -8,7 +8,6 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.navigation.NavDirections;
 import com.nexmo.client.NexmoCall;
-import com.nexmo.client.NexmoCallHandler;
 import com.nexmo.client.NexmoClient;
 import com.nexmo.client.NexmoIncomingCallListener;
 import com.nexmo.client.request_listener.NexmoApiError;
@@ -81,10 +80,7 @@ public class MainViewModel extends ViewModel {
 
     @SuppressLint("MissingPermission")
     public void startAppToAppCall() {
-        String otherUserName = otherUserLiveData.getValue();
-        lastCalledUserName = otherUserName;
-        client.call(otherUserName, NexmoCallHandler.IN_APP, callListener);
-        loadingMutableLiveData.postValue(true);
+        Tutorial.todo("Start a call");
     }
 
     public void onBackPressed() {
