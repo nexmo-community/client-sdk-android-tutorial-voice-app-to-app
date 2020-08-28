@@ -5,7 +5,7 @@ public class Config {
     public static User getAlice() {
         return new User(
                 "Alice",
-                "ALICE_TOKEN" // TODO: "set Bob JWT token"
+                "ALICE_TOKEN" // TODO: "set Alice JWT token"
         );
     }
 
