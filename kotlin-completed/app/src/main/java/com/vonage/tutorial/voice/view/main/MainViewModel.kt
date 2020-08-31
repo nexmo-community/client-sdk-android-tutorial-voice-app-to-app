@@ -82,7 +82,7 @@ class MainViewModel : ViewModel() {
     @SuppressLint("MissingPermission")
     fun startAppToAppCall() {
         lastCalledUserName = otherUserName
-        client.call(otherUserName, NexmoCallHandler.IN_APP, callListener)
+        client.call(otherUserName, NexmoCallHandler.SERVER, callListener)
         loadingMutableLiveData.postValue(true)
     }
 

@@ -86,7 +86,7 @@ public class MainViewModel extends ViewModel {
     public void startAppToAppCall() {
         String otherUserName = otherUserLiveData.getValue();
         lastCalledUserName = otherUserName;
-        client.call(otherUserName, NexmoCallHandler.IN_APP, callListener);
+        client.call(otherUserName, NexmoCallHandler.SERVER, callListener);
         loadingMutableLiveData.postValue(true);
     }
 
